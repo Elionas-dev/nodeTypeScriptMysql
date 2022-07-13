@@ -9,13 +9,13 @@ interface CustomersAttributes {
  contactFirstName: string;
  phone: string;
  addressLine1: string;
- addressLine2: string;
+ addressLine2?: string;
  city: string;
- state: string;
- postalCode: string;
+ state?: string;
+ postalCode?: string;
  country: string;
- salesRepEmployeeNumber: number;
- creditLimit: number;
+ salesRepEmployeeNumber?: number;
+ creditLimit?: number;
 
 };
 
@@ -29,13 +29,13 @@ class Customers extends Model<CustomersAttributes, CustomersInput> {
   declare contactFirstName: string;
   declare phone: string;
   declare addressLine1: string;
-  declare addressLine2: string;
+  declare addressLine2?: string;
   declare city: string;
-  declare state: string;
-  declare postalCode: string;
+  declare state?: string;
+  declare postalCode?: string;
   declare country: string;
-  declare salesRepEmployeeNumber: number;
-  declare creditLimit: number;
+  declare salesRepEmployeeNumber?: number;
+  declare creditLimit?: number;
 };
 
 Customers.init({
