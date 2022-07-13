@@ -23,10 +23,10 @@ class Payments extends Model<PaymentsAttributes, PaymentsInput> {
 };
 
 Payments.init({
-    customerNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    checkNumber: {type: DataTypes.STRING},
-    paymentDate: {type: DataTypes.STRING},
-    amount: {type: DataTypes.STRING},
+    customerNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
+    checkNumber: {type: DataTypes.STRING(50) ,allowNull: false},
+    paymentDate: {type: DataTypes.DATE, allowNull: false},
+    amount: {type: DataTypes.DECIMAL(10, 2), allowNull: false},
     
 },{
     sequelize,

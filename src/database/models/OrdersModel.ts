@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { sequelize } from '../server';
+import Customers from './CustomersModel';
 
 interface OrdersAttributes {
 
@@ -29,17 +30,20 @@ class Orders extends Model<OrdersAttributes, OrdersInput> {
 };
 
 Orders.init({
-  orderNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-  orderDate: {type: DataTypes.STRING},
-  requiredDate: {type: DataTypes.STRING},
-  shippedDate: {type: DataTypes.STRING},
-  status: {type: DataTypes.STRING},
-  comments: {type: DataTypes.STRING},
-  customerNumber: {type: DataTypes.INTEGER},
+  orderNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
+  orderDate: {type: DataTypes.DATE, allowNull: false},
+  requiredDate: {type: DataTypes.DATE, allowNull: false},
+  shippedDate: {type: DataTypes.DATE},
+  status: {type: DataTypes.STRING(15) ,allowNull: false},
+  comments: {type: DataTypes.TEXT},
+  customerNumber: {type: DataTypes.INTEGER, allowNull: false},
     
 },{
     sequelize,
     modelName: 'orders'
 });
+
+Customers.hasMany(Orders, {foreignKey: 'customerNumber'});
+Orders.belongsTo(Customers, {foreignKey: 'customerNumber'});
 
 export default Orders;

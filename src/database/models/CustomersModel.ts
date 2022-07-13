@@ -39,7 +39,7 @@ class Customers extends Model<CustomersAttributes, CustomersInput> {
 };
 
 Customers.init({
-    customerNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    customerNumber: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
     customerName: {type: DataTypes.STRING(50), allowNull: false},
     contactLastName: {type: DataTypes.STRING(50), allowNull: false},
     contactFirstName: {type: DataTypes.STRING(50), allowNull: false},

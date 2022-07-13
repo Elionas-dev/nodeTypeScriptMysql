@@ -23,10 +23,10 @@ class Productlines extends Model<ProductlinesAttributes, ProductlinesInput> {
 };
 
 Productlines.init({
-    productLine: {type: DataTypes.STRING, primaryKey: true, autoIncrement: true},
-    textDescription: {type: DataTypes.STRING},
-    htmlDescription: {type: DataTypes.STRING},
-    image: {type: DataTypes.STRING},
+    productLine: {type: DataTypes.STRING(50), primaryKey: true, autoIncrement: true, allowNull: false},
+    textDescription: {type: DataTypes.STRING(4000)},
+    htmlDescription: {type: DataTypes.TEXT('medium')},
+    image: {type: DataTypes.BLOB('medium')},
     
 },{
     sequelize,

@@ -31,15 +31,15 @@ class Offices extends Model<OfficesAttributes, OfficesInput> {
 };
 
 Offices.init({
-    officeCode: {type: DataTypes.STRING, primaryKey: true, autoIncrement: true},
+    officeCode: {type: DataTypes.STRING(10), primaryKey: true, autoIncrement: true, allowNull: false},
     city: {type: DataTypes.STRING(50), allowNull: false},
     phone: {type: DataTypes.STRING(50), allowNull: false},
     addressLine1: {type: DataTypes.STRING(50), allowNull: false},
-    addressLine2: {type: DataTypes.STRING(50), allowNull: false},
-    state: {type: DataTypes.STRING(50), allowNull: false},
-    country: {type: DataTypes.STRING(50)},
-    postalCode: {type: DataTypes.STRING(50), allowNull: false},
-    territory: {type: DataTypes.STRING(50)},
+    addressLine2: {type: DataTypes.STRING(50)},
+    state: {type: DataTypes.STRING(50)},
+    country: {type: DataTypes.STRING(50) ,allowNull: false},
+    postalCode: {type: DataTypes.STRING(15), allowNull: false},
+    territory: {type: DataTypes.STRING(10) ,allowNull: false},
     
 },{
     sequelize,
